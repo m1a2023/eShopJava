@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ecom.shop.model.UserModel;
 import com.ecom.shop.service.UserService;
+import com.ecom.shop.utils.Response.ResponseId;
 
-import lombok.Getter;
 
-
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @Controller
 public class UserController {
 	
@@ -52,10 +53,4 @@ public class UserController {
 
 	/* TODO: DELETE, PUT methods */
 
-	@Getter protected class ResponseId {
-		private final Integer id;
-		public ResponseId(String id) {
-			this.id = Integer.decode(id);
-		}
-	} 
 }
